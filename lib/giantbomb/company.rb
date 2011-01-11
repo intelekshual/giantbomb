@@ -62,7 +62,9 @@ module GiantBomb
       search = GiantBomb::Search.new
       search.resources('company')
       search.query(query)
-      search.fetch
+      search.fetch.collect do |result|
+        Company.new(result)
+      end
     end
     
     class << self

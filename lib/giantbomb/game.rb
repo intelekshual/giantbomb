@@ -72,7 +72,9 @@ module GiantBomb
       search = GiantBomb::Search.new
       search.resources('game')
       search.query(query)
-      search.fetch
+      search.fetch.collect do |result|
+        Game.new(result)
+      end
     end
     
     class << self
