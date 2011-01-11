@@ -1,5 +1,7 @@
 module GiantBomb
-  class Company
+  class Company < Resource
+    has_resource 'company', :plural => 'companies'
+    
     # http://api.giantbomb.com/documentation/#company
     @@fields = [
       :abbreviation, # Abbreviation of the company
@@ -34,41 +36,6 @@ module GiantBomb
     
     @@fields.each do |field|
       attr_accessor field
-    end
-    
-    def initialize(attributes={})
-      attributes.each do |key, value|
-        if self.respond_to?(key.to_sym)
-          self.instance_variable_set("@#{key}", value)
-        end
-      end
-    end
-    
-    def self.detail(id, conditions={})
-      search = GiantBomb::Search.new("/company/#{id}/")
-      search.filter(conditions)
-      Company.new(search.fetch)
-    end
-    
-    def self.list(conditions={})
-      search = GiantBomb::Search.new("/companies")
-      search.filter(conditions)
-      search.fetch.collect do |result|
-        Company.new(result)
-      end
-    end
-    
-    def self.search(query)
-      search = GiantBomb::Search.new
-      search.resources('company')
-      search.query(query)
-      search.fetch.collect do |result|
-        Company.new(result)
-      end
-    end
-    
-    class << self
-      alias_method :find, :search
     end
 
   end
