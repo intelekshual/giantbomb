@@ -1,17 +1,11 @@
 require 'rubygems'
 require 'httparty'
 
-[ 
-  "api", 
-  "search", 
-  "resource", 
-  "game", 
-  "company", 
-  "character", 
-  "franchise", 
-  "concept", 
-  "object"
-].each do |inc|
+["api","search","resource"].each do |inc|
+  require File.join(File.dirname(__FILE__), "giantbomb", inc)
+end
+
+["game","company","character","franchise","concept","object","location"].each do |inc|
   require File.join(File.dirname(__FILE__), "giantbomb", inc)
 end
 
