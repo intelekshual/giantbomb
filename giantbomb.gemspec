@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Robert Coker"]
   s.email       = ["rob@robertsays.com"]
   s.homepage    = "http://rubygems.org/gems/giantbomb"
-  s.summary     = %q{A Ruby wrapper for the GiantBomb API.}
-  s.description = %q{Provides a simple, easy to use interface for the GiantBomb API.}
+  s.summary     = %q{A Ruby wrapper for the Giant Bomb video game wiki API.}
+  s.description = %q{Provides a simple, easy to use interface for the Giant Bomb video game wiki API.}
 
   s.rubyforge_project = "giantbomb"
 
@@ -18,4 +18,6 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+  
+  s.add_dependency('httparty')
 end
