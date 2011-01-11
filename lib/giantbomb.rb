@@ -5,7 +5,7 @@ require 'httparty'
   require File.join(File.dirname(__FILE__), "giantbomb", inc)
 end
 
-["game","company","character","franchise","concept","object","location","person"].each do |inc|
+["game","company","character","franchise","concept","object","location","person","video"].each do |inc|
   require File.join(File.dirname(__FILE__), "giantbomb", inc)
 end
 
