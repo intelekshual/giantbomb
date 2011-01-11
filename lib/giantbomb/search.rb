@@ -1,7 +1,5 @@
 module GiantBomb
   class Search < Api
-    base_uri 'api.giantbomb.com'
-    
     attr_reader :query, :resource
     
     def initialize(resource=nil)
