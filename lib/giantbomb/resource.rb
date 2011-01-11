@@ -1,26 +1,26 @@
 module GiantBomb
   class Resource
-    @@resource = {}
+    @@endpoints = {}
     
     def self.has_resource(singular=nil, opts={})
-      @@resource[self.name.downcase] = { 
+      @@endpoints[self.name.downcase] = { 
         :singular => singular.nil? ? "#{self.name.downcase}" : singular, 
         :plural => opts[:plural].nil? ? "#{self.name.downcase}s" : opts[:plural]
       }
     end
     
-    def self.resources
-      @@resource[self.name.downcase]
+    def self.endpoints
+      @@endpoints[self.name.downcase]
     end
     
     def self.detail(id, conditions={})
-      search = GiantBomb::Search.new("/#{self.resources[:singular]}/#{id}/")
+      search = GiantBomb::Search.new("/#{self.endpoints[:singular]}/#{id}/")
       search.filter(conditions)
       self.new(search.fetch)
     end
     
     def self.list(conditions={})
-      search = GiantBomb::Search.new("/#{self.resources[:plural]}")
+      search = GiantBomb::Search.new("/#{self.endpoints[:plural]}")
       search.filter(conditions)
       search.fetch.collect do |result|
         self.new(result)
@@ -29,7 +29,7 @@ module GiantBomb
     
     def self.search(query)
       search = GiantBomb::Search.new
-      search.resources("#{self.resources[:singular]}")
+      search.resources("#{self.endpoints[:singular]}")
       search.query(query)
       search.fetch.collect do |result|
         self.new(result)
