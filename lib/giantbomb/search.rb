@@ -1,46 +1,72 @@
 module GiantBomb
+  # Wrapper for the Giant Bomb Search resource
+  # 
+  # @see http://api.giantbomb.com/documentation/#search
   class Search
     include GiantBomb::Api
     
+    # @private
     attr_reader :query, :resource
     
+    # Creates a new search
+    #
+    # @example Initialize a Giant Bomb search
+    #   search = GiantBomb::Search.new
+    #   search = GiantBomb::Search.new('game')
     def initialize(resource=nil)
       @params = {}
       @resource = resource.nil? ? '/search' : resource
       self
     end
     
-    # GiantBomb::Search.new.fields('name,deck')
+    # @group Generic filters
+    
+    # Only return the specified fields for the given resource
+    # 
+    # @param fields [String] A comma delimited list of fields to return.
+    # @return [GiantBomb::Search] self
     def fields(fields)
       @params[:field_list] = "#{fields}"
       self
     end
     
-    # GiantBomb::Search.new.limit(1)
+    # Only return a limited number of resources
+    # 
+    # @param limit [Integer] Nmber of items to limit by.
+    # @return [GiantBomb::Search] self
     def limit(limit)
       @params[:limit] = "#{limit}"
       self
     end
     
-    # GiantBomb::Search.new.offset(100)
+    # Only include resources starting from a given offset
+    # 
+    # @param limit [Integer] Number of items to skip.
+    # @return [GiantBomb::Search] self
     def offset(offset)
       @params[:offset] = "#{offset}"
       self
     end
     
-    # GiantBomb::Search.new.query('duke nukem')
+    # Search query
+    # 
+    # @param query [String] The search query.
+    # @return [GiantBomb::Search] self
     def query(query)
       @params[:query] = "#{query}"
       self
     end
     
-    # GiantBomb::Search.new.resources('game')
+    # Only include items of the specified resources
+    # 
+    # @param resources [String] A comma delimited list of resources to search.
+    # @return [GiantBomb::Search] self
     def resources(resources)
       @params[:resources] = "#{resources}"
       self
     end
 
-    # a convenience method that takes a hash where each key is 
+    # A convenience method that takes a hash where each key is 
     # the symbol of a method, and each value is the parameters
     # passed to that method.
     def filter(conditions)
@@ -53,7 +79,11 @@ module GiantBomb
       end
     end
     
-    # GiantBomb::Search.new.query('duke nukem').fetch
+    # Fetch the results of the query
+    #
+    # @return [Array] Items that match the specified query.
+    # @example
+    #   search = GiantBomb::Search.new.query("Duke Nukem").fetch
     def fetch
       options = @params.merge(Api.config)
       response = Api.get(@resource, :query => options)
