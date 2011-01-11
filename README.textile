@@ -1,9 +1,11 @@
 h1. A Ruby wrapper for the GiantBomb API
 
 h2. Configuration
+
 GiantBomb::Api.key(API_KEY_HERE)
 
 h2. Resources
+
 Current available resources:
 * Game
 * Company
@@ -20,6 +22,7 @@ h3. Example
 </pre>
 
 h2. Search
+
 GiantBomb::Search defaults to using the GiantBomb search resource and is the basis for all other resource requests. The implementation is inspired by jnunemaker's Twitter library.
 
 All of the "filter" methods in GiantBomb::Search are chainable.
