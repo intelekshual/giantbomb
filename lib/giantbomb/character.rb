@@ -1,5 +1,7 @@
 module GiantBomb
-  class Character
+  class Character < Resource
+    has_resource 'character', :plural => 'characters'
+    
     # http://api.giantbomb.com/documentation/#character
     @@fields = [
       :aliases, # List of aliases that the character is known by. A \n (newline) separates each alias.
@@ -31,14 +33,6 @@ module GiantBomb
     
     @@fields.each do |field|
       attr_accessor field
-    end
-    
-    def initialize(attributes={})
-      attributes.each do |key, value|
-        if self.respond_to?(key.to_sym)
-          self.instance_variable_set("@#{key}", value)
-        end
-      end
     end
     
   end
