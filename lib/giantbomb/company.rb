@@ -1,5 +1,5 @@
 module GiantBomb
-  class Company < Api
+  class Company
     # http://api.giantbomb.com/documentation/#company
     @@fields = [
       :abbreviation, # Abbreviation of the company

@@ -1,5 +1,5 @@
 module GiantBomb
-  class Character < Api
+  class Character
     # http://api.giantbomb.com/documentation/#character
     @@fields = [
       :aliases, # List of aliases that the character is known by. A \n (newline) separates each alias.

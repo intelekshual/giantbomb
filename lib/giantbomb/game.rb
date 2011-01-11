@@ -1,5 +1,5 @@
 module GiantBomb
-  class Game < Api
+  class Game
     # http://api.giantbomb.com/documentation/#game
     @@fields = [
       :aliases, # List of aliases the game is known by. A \n (newline) separates each alias.

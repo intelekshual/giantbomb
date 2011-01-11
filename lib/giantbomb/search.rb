@@ -1,5 +1,7 @@
 module GiantBomb
-  class Search < Api
+  class Search
+    include GiantBomb::Api
+    
     attr_reader :query, :resource
     
     def initialize(resource=nil)
@@ -53,8 +55,8 @@ module GiantBomb
     
     # GiantBomb::Search.new.query('duke nukem').fetch
     def fetch
-      options = @params.merge(@@config)
-      response = self.class.get(@resource, :query => options)
+      options = @params.merge(Api.config)
+      response = Api.get(@resource, :query => options)
       response['results']
     end
         
