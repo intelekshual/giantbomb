@@ -85,10 +85,28 @@ module GiantBomb
     # @example
     #   search = GiantBomb::Search.new.query("Duke Nukem").fetch
     def fetch
+      fetch_response['results']
+    end
+
+    # Fetch the full response of the query, including metadata
+    # Keys returned:
+    #   status_code
+    #   error
+    #   number_of_total_results
+    #   number_of_page_results
+    #   limit
+    #   offset
+    #   results
+    # 
+    # @return [Hash] Hash of the api response
+    # @example
+    #   search = GiantBomb::Search.new.query("Duke Nukem").fetch_response
+    # @see http://api.giantbomb.com/documentation/#handling_responses
+    def fetch_response
       options = @params.merge(Api.config)
       response = Api.get(@resource, :query => options)
-      response['results']
+      response.to_hash
     end
-        
+
   end
 end
