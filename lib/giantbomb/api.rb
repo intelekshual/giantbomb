@@ -1,7 +1,7 @@
 module GiantBomb
   module Api
     include HTTParty
-    base_uri 'api.giantbomb.com'
+    base_uri 'www.giantbomb.com/api'
     
     def self.config
       @@config
