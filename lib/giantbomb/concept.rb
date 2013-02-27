@@ -1,6 +1,6 @@
 module GiantBomb
   class Concept < Resource
-    has_resource 'concept', :plural => 'concepts'
+    has_resource 'concept', :plural => 'concepts', :id => '3015'
 
     # http://api.giantbomb.com/documentation/#concept
     @@fields = [

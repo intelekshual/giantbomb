@@ -1,6 +1,6 @@
 module GiantBomb
   class Character < Resource
-    has_resource 'character', :plural => 'characters'
+    has_resource 'character', :plural => 'characters', :id => '3005'
     
     # http://api.giantbomb.com/documentation/#character
     @@fields = [

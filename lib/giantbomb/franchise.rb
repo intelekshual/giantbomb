@@ -1,6 +1,6 @@
 module GiantBomb
   class Franchise < Resource
-    has_resource 'franchise', :plural => 'franchises'
+    has_resource 'franchise', :plural => 'franchises', :id => '3025'
 
     # http://api.giantbomb.com/documentation/#franchise
     @@fields = [
