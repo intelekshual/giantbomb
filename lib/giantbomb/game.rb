@@ -1,6 +1,6 @@
 module GiantBomb
   class Game < Resource
-    has_resource 'game', :plural => 'games'
+    has_resource 'game', :plural => 'games', :id => '3030'
     
     # http://api.giantbomb.com/documentation/#game
     @@fields = [
@@ -13,6 +13,7 @@ module GiantBomb
       :deck, # Brief summary of the game
       :description, # Description of the game
       :developers, # Companies that developed the game
+      :expected_release_day, # Expected day the game will be released in. The day is represented numerically.
       :expected_release_month, # Expected month the game will be released in. The month is represented numerically.
       :expected_release_quarter, # Expected quarter game will be released in. The quarter is represented numerically, where 1 = Q1, 2 = Q2, 3 = Q3, and 4 = Q4.
       :expected_release_year, # Expected year the game will be released in.

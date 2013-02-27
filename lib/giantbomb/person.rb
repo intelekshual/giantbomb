@@ -1,6 +1,6 @@
 module GiantBomb
   class Person < Resource
-    has_resource 'person', :plural => 'people'
+    has_resource 'person', :plural => 'people', :id => '3040'
 
     # http://api.giantbomb.com/documentation/#person
     @@fields = [

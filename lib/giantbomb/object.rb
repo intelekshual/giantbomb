@@ -1,6 +1,6 @@
 module GiantBomb
   class GameObject < Resource
-    has_resource 'object', :plural => 'objects'
+    has_resource 'object', :plural => 'objects', :id => '3055'
 
     # http://api.giantbomb.com/documentation/#object
     @@fields = [

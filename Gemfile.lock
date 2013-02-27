@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    giantbomb (0.5.1)
+      httparty
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    httparty (0.10.2)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
+    multi_json (1.6.1)
+    multi_xml (0.5.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  giantbomb!
