@@ -1,6 +1,6 @@
 module GiantBomb
   class Location < Resource
-    has_resource 'location', :plural => 'locations'
+    has_resource 'location', :plural => 'locations', :id => '3035'
 
     # http://api.giantbomb.com/documentation/#location
     @@fields = [

@@ -1,6 +1,6 @@
 module GiantBomb
   class Company < Resource
-    has_resource 'company', :plural => 'companies'
+    has_resource 'company', :plural => 'companies', :id => '3010'
     
     # http://api.giantbomb.com/documentation/#company
     @@fields = [
