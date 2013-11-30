@@ -12,7 +12,8 @@ module GiantBomb
       :publish_date, # Date the video was published on Giant Bomb
       :site_detail_url, # URL pointing to the video on Giant Bomb
       :url, # The video's filename
-      :user # Author of the video
+      :user, # Author of the video
+      :video_type # The video's category
     ]
     
     @@fields.each do |field|
