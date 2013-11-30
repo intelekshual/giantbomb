@@ -30,6 +30,16 @@ module GiantBomb
       self
     end
     
+    # Customizes the 'filter' parameter. Any resource property can be filtered
+    # with a pipe-delimited list of values. e.g. 'video_type:3|8|6,user:jeff'
+    # 
+    # @param filter [String] A comma-delimited list of filters to apply
+    # @return [GiantBomb::Search] self
+    def apply_filter(filter)
+      @params[:filter] = "#{filter}"
+      self
+    end
+
     # Only return a limited number of resources
     # 
     # @param limit [Integer] Nmber of items to limit by.
@@ -66,6 +76,15 @@ module GiantBomb
       self
     end
 
+    # Sort by the given parameter and direction.
+    # 
+    # @param sort [String] The attribute by which to sort.
+    # @return [GiantBomb::Search] self
+    def sort(sort)
+      @params[:sort] = "#{sort}"
+      self
+    end
+
     # A convenience method that takes a hash where each key is 
     # the symbol of a method, and each value is the parameters
     # passed to that method.
@@ -77,16 +96,6 @@ module GiantBomb
           self.send(key, value)
         end
       end
-    end
-
-    # Customizes the 'filter' parameter. Any resource property can be filtered
-    # with a pipe-delimited list of values. e.g. 'video_type:3|8|6,user:jeff'
-    # 
-    # @param filter [String] A comma-delimited list of filters to apply
-    # @return [GiantBomb::Search] self
-    def apply_filter(filter)
-      @params[:filter] = "#{filter}"
-      self
     end
 
     # Fetch the results of the query
