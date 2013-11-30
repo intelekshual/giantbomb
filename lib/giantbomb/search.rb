@@ -70,15 +70,25 @@ module GiantBomb
     # the symbol of a method, and each value is the parameters
     # passed to that method.
     def filter(conditions)
-      if conditions
-        conditions.each do |key, value|
-          if self.respond_to?(key)
-            self.send(key, value)
-          end
+      conditions[:apply_filter] = conditions.delete(:filter)
+
+      conditions.each do |key, value|
+        if self.respond_to?(key)
+          self.send(key, value)
         end
       end
     end
-    
+
+    # Customizes the 'filter' parameter. Any resource property can be filtered
+    # with a pipe-delimited list of values. e.g. 'video_type:3|8|6,user:jeff'
+    # 
+    # @param filter [String] A comma-delimited list of filters to apply
+    # @return [GiantBomb::Search] self
+    def apply_filter(filter)
+      @params[:filter] = "#{filter}"
+      self
+    end
+
     # Fetch the results of the query
     #
     # @return [Array] Items that match the specified query.
