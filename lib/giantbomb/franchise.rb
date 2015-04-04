@@ -21,10 +21,10 @@ module GiantBomb
       :people, # People related to the franchise
       :site_detail_url # URL pointing to the franchise on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end

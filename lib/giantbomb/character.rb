@@ -1,7 +1,7 @@
 module GiantBomb
   class Character < Resource
     has_resource 'character', :plural => 'characters', :id => '3005'
-    
+
     # http://api.giantbomb.com/documentation/#character
     @@fields = [
       :aliases, # List of aliases that the character is known by. A \n (newline) separates each alias.
@@ -30,10 +30,10 @@ module GiantBomb
       :real_name, # Real name of the character
       :site_detail_url # URL pointing to the character on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end
