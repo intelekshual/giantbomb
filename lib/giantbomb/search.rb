@@ -13,10 +13,9 @@ module GiantBomb
     # @example Initialize a Giant Bomb search
     #   search = GiantBomb::Search.new
     #   search = GiantBomb::Search.new('game')
-    def initialize(resource=nil)
+    def initialize(resource='/search')
       @params = {}
-      #@resource = resource.nil? ? '/search' : ''
-      @params[:resources] = resource
+      @resource = resource
       self
     end
 
