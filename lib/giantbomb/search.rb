@@ -66,6 +66,14 @@ module GiantBomb
       self
     end
 
+    def hash_to_filter(filter={})
+      filters = []
+      filter.each do |key, value|
+        filters << "#{key}:#{value}"
+      end
+      @params[:filter] = filters.join(',')
+    end
+
     # A convenience method that takes a hash where each key is
     # the symbol of a method, and each value is the parameters
     # passed to that method.
