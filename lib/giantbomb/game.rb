@@ -1,7 +1,7 @@
 module GiantBomb
   class Game < Resource
     has_resource 'game', :plural => 'games', :id => '3030'
-    
+
     # http://api.giantbomb.com/documentation/#game
     @@fields = [
       :aliases, # List of aliases the game is known by. A \n (newline) separates each alias.
@@ -44,7 +44,7 @@ module GiantBomb
       :themes, # Themes that encompass the game
       :videos # Videos associated to the game
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end

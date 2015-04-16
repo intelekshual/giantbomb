@@ -23,14 +23,14 @@ module GiantBomb
       :name, # Name of the concept
       :objects, # Objects related to the concept
       :people, # People related to the concept
-      :platforms, # Platforms related to the concept
+      #:platforms, # Platforms related to the concept REMOVED not seen on http://www.giantbomb.com/api/documentation#toc-0-10
       :related_concepts, # Other concepts related to the concept
       :site_detail_url # URL pointing to the concept on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end
