@@ -1,7 +1,7 @@
 module GiantBomb
   module Api
     include HTTParty
-    base_uri 'http://giantbomb.com/api/'
+    base_uri 'http://www.giantbomb.com/api/'
 
     def self.config
       @@config
@@ -11,5 +11,4 @@ module GiantBomb
       @@config = { :api_key => api_key, :format => 'json' }
     end
   end
-
 end
