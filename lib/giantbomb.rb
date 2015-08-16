@@ -1,3 +1,8 @@
+# require "giantbomb/version"
+
+# module Giantbomb
+#   # Your code goes here...
+# end
 require 'rubygems'
 require 'httparty'
 
@@ -10,5 +15,5 @@ end
 end
 
 module GiantBomb
-  VERSION = '1.5.4'
+  # VERSION = '1.5.4'
 end
