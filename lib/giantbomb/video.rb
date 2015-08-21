@@ -14,10 +14,10 @@ module GiantBomb
       :url, # The video's filename
       :user # Author of the video
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end

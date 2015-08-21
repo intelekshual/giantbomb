@@ -1,5 +1,5 @@
 # coding: utf-8
-require 'giantbomb/version'
+require './lib/giantbomb/version'
 
 Gem::Specification.new do |g|
   g.name        = "giantbomb"
