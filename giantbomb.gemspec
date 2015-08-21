@@ -1,23 +1,25 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "giantbomb"
+# coding: utf-8
+require './lib/giantbomb/version'
 
-Gem::Specification.new do |s|
-  s.name        = "giantbomb"
-  s.version     = GiantBomb::VERSION
-  s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Robert Coker"]
-  s.email       = ["rob@robertsays.com"]
-  s.homepage    = "http://rubygems.org/gems/giantbomb"
-  s.summary     = %q{A Ruby wrapper for the Giant Bomb video game wiki API.}
-  s.description = %q{Provides a simple, easy to use interface for the Giant Bomb video game wiki API.}
+Gem::Specification.new do |g|
+  g.name        = "giantbomb"
+  g.version     = GiantBomb::VERSION
+  g.platform    = Gem::Platform::RUBY
+  g.date        = Date.today.to_s
 
-  s.rubyforge_project = "giantbomb"
+  g.authors     = ["Robert Coker", "Vlad Radulescu"]
+  g.email       = ["rob@robertsays.com", "pacMakaveli90@gmail.com"]
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
-  
-  s.add_dependency('httparty')
+  g.homepage    = "http://rubygems.org/gems/giantbomb"
+  g.summary     = %q{A Ruby wrapper for the Giant Bomb video game wiki API.}
+  g.description = %q{Provides a simple, easy to use interface for the Giant Bomb video game wiki API.}
+
+  g.add_dependency("httparty")
+
+  g.rubyforge_project = "giantbomb"
+
+  g.files         = `git ls-files`.split("\n")
+  g.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  g.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  g.require_paths = ["lib"]
 end
