@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Giantbomb do
+describe GiantBomb do
   it 'has a version number' do
-    expect(Giantbomb::VERSION).not_to be nil
+    expect(GiantBomb::VERSION).not_to be nil
   end
 
   it 'does something useful' do

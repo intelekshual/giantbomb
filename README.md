@@ -1,8 +1,7 @@
-# Giantbomb
+## A Ruby wrapper for the GiantBomb API
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/giantbomb`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+All credits goes to [intelekshual](https://github.com/intelekshual) for creating
+mostly everything :)
 
 ## Installation
 
@@ -20,22 +19,75 @@ Or install it yourself as:
 
     $ gem install giantbomb
 
-## Usage
+In your Rails application, add your API key to:
+`config/initializers/giantbomb.rb`
 
-TODO: Write usage instructions here
+``` ruby
+GiantBomb::Api.key('API_KEY_HERE')
+```
 
-## Development
+### Resources
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+Current available resources:
+* Character
+* Company
+* Concept
+* Franchise
+* Game
+* Location
+* Person
+* Platform
+* Video
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+All resources have access to `Resource#list` `Resource#detail` and `Resource#search`
 
-## Contributing
+### Usage
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/giantbomb. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+###### Finding a Game
 
+``` ruby
+game = GiantBomb::Game.detail(1)
+
+games = GiantBomb::Game.find('gta')
+games = GiantBomb::Game.list
+```
+
+###### Searching for Games
+
+``` ruby
+search = GiantBomb::Search.new
+search.query('gta')
+search.fetch
+```
+
+``` ruby
+# Available filter methods
+
+.limit(10)           # limits the number of returned resources
+.resources('game')   # determines the type of resource
+.fields('name,deck') # returns only the requested resources
+.offset(100)         # sets the offset
+
+# All filters are chainable!
+```
+
+### Development
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run
+`rake spec` to run the tests. You can also run `bin/console` for an interactive
+prompt that will allow you to experiment.
+
+###### TODO
+
+* Add all resources available from: http://www.giantbomb.com/api/documentation
+* Create a proper documentation showcasing all available resources and how to use them
+* Tests
+
+### Examples
+
+For more examples see [mygames.io](https://github.com/pacMakaveli/mygames.io)
+for a live application
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
