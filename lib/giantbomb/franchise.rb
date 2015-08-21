@@ -1,6 +1,6 @@
 module GiantBomb
   class Franchise < Resource
-    has_resource 'franchise', :plural => 'franchises', :id => '3025'
+    has_resource 'franchise', plural: 'franchises', id: '3025'
 
     # http://api.giantbomb.com/documentation/#franchise
     @@fields = [
@@ -21,10 +21,10 @@ module GiantBomb
       :people, # People related to the franchise
       :site_detail_url # URL pointing to the franchise on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end

@@ -1,6 +1,6 @@
 module GiantBomb
   class Concept < Resource
-    has_resource 'concept', :plural => 'concepts', :id => '3015'
+    has_resource 'concept', plural: 'concepts', id: '3015'
 
     # http://api.giantbomb.com/documentation/#concept
     @@fields = [
@@ -27,10 +27,10 @@ module GiantBomb
       :related_concepts, # Other concepts related to the concept
       :site_detail_url # URL pointing to the concept on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end

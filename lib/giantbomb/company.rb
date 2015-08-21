@@ -1,7 +1,7 @@
 module GiantBomb
   class Company < Resource
-    has_resource 'company', :plural => 'companies', :id => '3010'
-    
+    has_resource 'company', plural: 'companies', id: '3010'
+
     # http://api.giantbomb.com/documentation/#company
     @@fields = [
       :abbreviation, # Abbreviation of the company
@@ -33,7 +33,7 @@ module GiantBomb
       :site_detail_url, # URL pointing to the company on Giant Bomb
       :website # URL to the company website
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end

@@ -1,6 +1,6 @@
 module GiantBomb
   class Video < Resource
-    has_resource 'video', :plural => 'videos', :id => '2300'
+    has_resource 'video', plural: 'videos', id: '2300'
 
     # http://api.giantbomb.com/documentation/#video
     @@fields = [

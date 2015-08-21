@@ -1,6 +1,6 @@
 module GiantBomb
   class Location < Resource
-    has_resource 'location', :plural => 'locations', :id => '3035'
+    has_resource 'location', plural: 'locations', id: '3035'
 
     # http://api.giantbomb.com/documentation/#location
     @@fields = [
@@ -16,10 +16,10 @@ module GiantBomb
       :name, # Name of the location
       :site_detail_url # URL pointing to the location on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end

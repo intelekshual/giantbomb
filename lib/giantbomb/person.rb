@@ -1,6 +1,6 @@
 module GiantBomb
   class Person < Resource
-    has_resource 'person', :plural => 'people', :id => '3040'
+    has_resource 'person', plural: 'people', id: '3040'
 
     # http://api.giantbomb.com/documentation/#person
     @@fields = [
@@ -30,10 +30,10 @@ module GiantBomb
       :platforms, # Platforms related to the person
       :site_detail_url # URL pointing to the person on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end

@@ -1,6 +1,6 @@
 module GiantBomb
   class GameObject < Resource
-    has_resource 'object', :plural => 'objects', :id => '3055'
+    has_resource 'object', plural: 'objects', id: '3055'
 
     # http://api.giantbomb.com/documentation/#object
     @@fields = [
@@ -25,10 +25,10 @@ module GiantBomb
       :platforms, # Platforms related to the object
       :site_detail_url # URL pointing to the object on Giant Bomb
     ]
-    
+
     @@fields.each do |field|
       attr_accessor field
     end
-    
+
   end
 end

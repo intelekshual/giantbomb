@@ -5,8 +5,8 @@ module GiantBomb
 
     def self.has_resource(singular=nil, opts={})
       @@endpoints[self.name.downcase] = {
-        :singular => singular.nil? ? "#{self.name.downcase}" : singular,
-        :plural => opts[:plural].nil? ? "#{self.name.downcase}s" : opts[:plural]
+        singular: singular.nil? ? "#{self.name.downcase}" : singular,
+        plural: opts[:plural].nil? ? "#{self.name.downcase}s" : opts[:plural]
       }
       @@endpoint_id[self.name.downcase] = opts[:id].nil? ? "" : "#{opts[:id]}-"
     end
