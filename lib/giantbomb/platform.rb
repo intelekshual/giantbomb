@@ -3,6 +3,7 @@ module GiantBomb
     has_resource 'platform', plural: 'platforms', id: '3045'
 
     # http://www.giantbomb.com/api/documentation#toc-0-26
+    # http://www.giantbomb.com/api/documentation#toc-0-27
     #
     @@fields = [
       :abbreviation,      # Abbreviation of the platform.
